@@ -1,4 +1,4 @@
-package com.josuemartinez.favoritefoodsapp.utilities;
+package com.josuemartinez.weatherapp.utilities;
 
 import android.net.Uri;
 

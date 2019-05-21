@@ -1,4 +1,4 @@
-package com.josuemartinez.favoritefoodsapp;
+package com.josuemartinez.weatherapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,9 +7,10 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.josuemartinez.favoritefoodsapp.datafrominternet.R;
-import com.josuemartinez.favoritefoodsapp.utilities.NetworkUtils;
+import com.josuemartinez.weatherapp.datafrominternet.R;
+import com.josuemartinez.weatherapp.utilities.NetworkUtils;
 
+import java.io.IOException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
         String githubQuery = mSearchBoxEditText.getText().toString();
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
+
+        String githubSearchResults = null;
+        try{
+            githubSearchResults = NetworkUtils.getResponseFromHttpUrl(githubSearchUrl);
+            mSearchResultsTextView.setText(githubSearchResults);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
