@@ -1,4 +1,4 @@
-package com.josuemartinez.weatherapp.utilities;
+package com.josuemartinez.repositorysearchapp.utilities;
 
 import android.net.Uri;
 
